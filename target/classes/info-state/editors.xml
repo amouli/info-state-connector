@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/info-state" prefix="info-state">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="InfoState" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/info-state/abstractInfo-stateConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="InfoState: HttpBasicAuth" description="Global HttpBasicAuth configuration information." icon="icons/theme.classic/info-state-connector-small.png" localId="config" image="icons/theme.classic/info-state-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/info-state/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Info-state configuration properties.">
+      <group id="info-stateGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="connection" caption="Connection">
+        <string name="username" caption="Username" description="" required="true" javaType="java.lang.String"></string>
+        <string name="password" caption="Password" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractinfo-stateconnectorgeneric" description="Interact with Info-state." icon="icons/theme.classic/info-state-connector-small.png" localId="abstractInfo-stateConnectorGeneric" image="icons/theme.classic/info-state-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractInfo-stateConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/info-state/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.info-state" caption="InfoState" description="" icon="icons/theme.classic/info-state-connector-small.png" localId="info-state-connector" image="icons/theme.classic/info-state-connector-large.png" extends="http://www.mulesoft.org/schema/mule/info-state/abstractInfo-stateConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="info-stateConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Info-state operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/info-state/abstractInfo-stateConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/info-state/get-state-info" modeLabel="Get state info"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/info-state/greet" modeLabel="Greet"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Get State Info" icon="icons/theme.classic/info-state-connector-small.png" localId="get-state-info" image="icons/theme.classic/info-state-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/info-state/abstractInfo-stateConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="State" caption="State" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="void" caption="Greet" icon="icons/theme.classic/info-state-connector-small.png" localId="greet" image="icons/theme.classic/info-state-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/info-state/abstractInfo-stateConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="friend" caption="Friend" description="Name of a friend we want to greet." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>
